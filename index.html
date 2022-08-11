@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,
+			maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h6>The term <span style="color:#e934d7">"don't repeat yourself"</span>
+						was coined in 1999 by Andy
+						Hunt and Dave Thomas in their book The Pragmatic Programmer. They defined
+						it as <span style="color:#64c7d8">"Every piece of knowledge must have a
+							single, unambiguous,
+							authoritative representation within a system."</span></h6>
+				</section>
+				<section>
+					<section>
+						<pre><code data-trim data-noescape>
+let chips = ['corn', 'pita', 'potato', 'tortilla'];
+
+// non DRY code
+console.log(chips[0]);
+console.log(chips[1]);
+console.log(chips[2]);
+				</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim data-noescape>
+let chips = ['corn', 'pita', 'potato', 'tortilla'];
+
+// DRY code
+for (let i = 0; i &lt; chips.length; i++) {
+    console.log(chips[i]);
+}
+</code></pre></section>
+				</section>
+				<section>
+					<section>
+						<pre><code data-trim data-noescape>
+let drinks = ['lemonade', 'soda', 'tea', 'water'];
+let food = ['beans', 'chicken', 'rice'];
+//non DRY code
+console.log(drinks[0]);
+console.log(drinks[1]);
+console.log(drinks[2]);
+console.log(drinks[3]);
+
+console.log(food[0]);
+console.log(food[1]);
+console.log(food[2]);
+</code></pre>
+					</section>
+
+					<section>
+						<pre><code data-trim data-noescape>
+// DRY code
+function logItems (array) {
+	for (let i = 0; i &lt; array.length; i++) {
+		console.log(array[i]);
+	}
+}
+
+logItems(drinks);
+logItems(food);
+</code></pre></section></section>
+				<section>
+					<section>
+						<pre><code data-trim data-noescape>
+			// non DRY code
+			let f = ['bananas', 'dates', 'dried figs', 'oranges'];
+		
+			function hi (banana) {
+				for (let i = 0; i &lt; banana.length; i++) {
+					console.log(banana[i]);
+				}
+			}
+		
+			hi(f);
+</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim data-noescape>
+			// DRY code
+			let fruits = ['bananas', 'dates', 'dried figs', 'oranges'];
+		
+			function logItems (array) {
+				for (let i = 0; i &lt; array.length; i++) {
+					console.log(array[i]);
+				}
+			}
+		
+			logItems(fruits);
+</code></pre></section>
+					<section><h3>A good starting naming convention for your variables and
+							functions
+							would be:</h3>
+						<ul>
+							<li> <span style="color:#64c7d8">singluar words for variables containing
+									values.</span> i.e: fruit,
+								firstName,
+								favoriteColor</li>
+							<li> <span style="color:#ec32dd">words for variables containing objects
+									or arrays.</span> i.e: fruits, names, myColors</li>
+							<li> <span style="color:#7de825">a description for variables containing
+									functions.</span> ie: logFruits, findPerson, getFavoriteColor</li>
+						</ul>
+					</section>
+				</section>
+				<section><h3 style="color:#e934d7">Why DRY?</h3>
+					<ul>
+						<li>Code once, use it often.</li>
+						<li>Change code in one place, see the change in all instances.</li>
+						<li>Less code is good: It saves time and effort, is easy to maintain, and
+							also reduces the chances of bugs.</li>
+					</ul>
+				</section>
+				<section><h3 style="color:#e934d7">DRY Violations</h3>
+					<p>Writing/ Copying and pasting the same code or logic again and again.</p>
+					<img
+						src="https://res.cloudinary.com/practicaldev/image/fetch/s--Pq_cW0Fs--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3m6alzdd8r7iofq01jf4.gif"
+						alt="cat is typing">
+				</section>
+				<section>
+					<h3 style="color:#e934d7"></h3>
+					<ul>
+						<li>Divide your code and logic into smaller reusable units and use that
+							code by calling it where you want.</li>
+						<li>Put business rules, long expressions, if statements, math formulas,
+							metadata, etc. in only one place.</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
